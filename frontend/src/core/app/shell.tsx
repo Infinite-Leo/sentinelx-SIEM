@@ -23,7 +23,6 @@ import { Suspense } from 'react'
 import { ErrorBoundary, type FallbackProps } from 'react-error-boundary'
 import { GiButterflyWarning } from 'react-icons/gi'
 import {
-  LuActivity,
   LuChevronLeft,
   LuChevronRight,
   LuLayoutDashboard,
@@ -95,8 +94,12 @@ export function Shell(): React.ReactElement {
       >
         <div className={styles.sidebarHeader}>
           <div className={styles.logoGroup}>
-            <LuActivity className={styles.logoIcon} />
-            <span className={styles.logo}>SIEM</span>
+            <span className={styles.logoMark} aria-hidden="true">
+              S
+            </span>
+            <span className={styles.logo}>
+              SENTINEL<span>X</span>
+            </span>
           </div>
           <button
             type="button"
@@ -191,10 +194,20 @@ export function Shell(): React.ReactElement {
             >
               <LuMenu />
             </button>
-            <h1 className={styles.pageTitle}>{pageTitle}</h1>
+            <div>
+              <p className={styles.eyebrow}>SOC OPERATIONS</p>
+              <h1 className={styles.pageTitle}>{pageTitle}</h1>
+            </div>
           </div>
 
           <div className={styles.headerRight}>
+            <span className={styles.systemStatus}>
+              <span /> Operator console
+            </span>
+            <span className={styles.divider} aria-hidden="true" />
+            <span className={styles.userName}>
+              {user?.username ?? 'Operator'}
+            </span>
             <span className={styles.avatar}>{avatarLetter}</span>
           </div>
         </header>

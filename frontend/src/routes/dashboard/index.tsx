@@ -16,6 +16,7 @@
 //   stat-cards.tsx, event-timeline.tsx, severity-chart.tsx, top-sources.tsx - panel components
 // ===================
 
+import { LuArrowUpRight, LuRadioTower } from 'react-icons/lu'
 import {
   useDashboardOverview,
   useSeverityBreakdown,
@@ -36,6 +37,23 @@ export function Component(): React.ReactElement {
 
   return (
     <div className={styles.page}>
+      <section className={styles.hero}>
+        <div>
+          <div className={styles.kicker}>
+            <LuRadioTower />
+            LIVE TELEMETRY
+          </div>
+          <h2>Security posture</h2>
+          <p>
+            Monitor activity across your environment and move from signal to
+            response.
+          </p>
+        </div>
+        <div className={styles.heroMeta}>
+          <span>24H WINDOW</span>
+          <LuArrowUpRight aria-hidden="true" />
+        </div>
+      </section>
       <StatCards data={overview.data} isLoading={overview.isLoading} />
       <EventTimeline data={timeline.data} isLoading={timeline.isLoading} />
       <div className={styles.row}>

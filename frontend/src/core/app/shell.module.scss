@@ -21,7 +21,7 @@ $header-height: 56px;
   left: 0;
   bottom: 0;
   width: $sidebar-width;
-  background-color: $bg-shell-base;
+  background-color: hsl(222, 26%, 8%);
   background-image: radial-gradient(
     circle,
     $bg-shell-dot 1px,
@@ -76,6 +76,24 @@ $header-height: 56px;
   }
 }
 
+.logoMark {
+  width: 28px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  border-radius: $radius-sm;
+  background: $accent;
+  color: $white;
+  font-size: $font-size-base;
+  font-weight: $font-weight-semibold;
+  letter-spacing: -0.04em;
+  box-shadow: 0 0 18px hsl(0 84% 39% / 35%);
+
+  .sidebar.collapsed & {
+    display: none;
+  }
+}
+
 .logoIcon {
   width: 20px;
   height: 20px;
@@ -96,6 +114,10 @@ $header-height: 56px;
 
   .sidebar.collapsed & {
     display: none;
+  }
+
+  span {
+    color: $accent;
   }
 }
 
@@ -271,7 +293,7 @@ $header-height: 56px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 $space-4;
+  padding: 0 $space-6;
 }
 
 .headerLeft {
@@ -306,16 +328,51 @@ $header-height: 56px;
 }
 
 .pageTitle {
-  font-size: $font-size-base;
-  font-weight: $font-weight-medium;
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
   color: $text-default;
-  margin-left: 7px;
+  line-height: 1.1;
+}
+
+.eyebrow {
+  margin: 0 0 3px;
+  color: $text-lighter;
+  font-size: $font-size-3xs;
+  font-weight: $font-weight-semibold;
+  letter-spacing: $tracking-wider;
 }
 
 .headerRight {
   display: flex;
   align-items: center;
   gap: $space-3;
+}
+
+.systemStatus {
+  display: flex;
+  align-items: center;
+  gap: $space-2;
+  color: $text-lighter;
+  font-size: $font-size-xs;
+
+  span {
+    width: 6px;
+    height: 6px;
+    border-radius: $radius-full;
+    background: hsl(142, 76%, 46%);
+    box-shadow: 0 0 10px hsl(142 76% 46% / 75%);
+  }
+}
+
+.divider {
+  width: 1px;
+  height: 20px;
+  background: $border-default;
+}
+
+.userName {
+  color: $text-light;
+  font-size: $font-size-xs;
 }
 
 .avatar {
@@ -337,7 +394,7 @@ $header-height: 56px;
 .content {
   flex: 1;
   overflow-y: auto;
-  padding: 48px;
+  padding: $space-8;
   background-color: $bg-content-base;
   background-image: radial-gradient(
     circle,
@@ -349,6 +406,15 @@ $header-height: 56px;
   @include breakpoint-down('sm') {
     padding: $space-4;
   }
+}
+
+@include breakpoint-down('sm') {
+  .systemStatus,
+  .divider,
+  .userName {
+    display: none;
+  }
+  .header { padding: 0 $space-4; }
 }
 
 .loading {

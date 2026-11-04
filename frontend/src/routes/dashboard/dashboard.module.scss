@@ -7,10 +7,68 @@
 
 .page {
   @include flex-column;
-  gap: $space-6;
+  gap: $space-5;
   width: 100%;
   max-width: 1325px;
   margin: 0 auto;
+}
+
+.hero {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: $space-6;
+  padding: $space-2 0 $space-3;
+  border-bottom: 1px solid $border-default;
+
+  h2 {
+    margin: $space-2 0 $space-1;
+    color: $text-default;
+    font-size: clamp($font-size-2xl, 3vw, $font-size-4xl);
+    letter-spacing: $tracking-tight;
+  }
+
+  p {
+    margin: 0;
+    color: $text-lighter;
+    font-size: $font-size-sm;
+  }
+
+  @include breakpoint-down('sm') {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+.kicker {
+  display: flex;
+  align-items: center;
+  gap: $space-2;
+  color: $accent;
+  font-size: $font-size-3xs;
+  font-weight: $font-weight-semibold;
+  letter-spacing: $tracking-wider;
+
+  svg {
+    width: 13px;
+    height: 13px;
+  }
+}
+
+.heroMeta {
+  display: flex;
+  align-items: center;
+  gap: $space-2;
+  color: $text-lighter;
+  font-size: $font-size-3xs;
+  letter-spacing: $tracking-wider;
+  white-space: nowrap;
+
+  svg {
+    width: 15px;
+    height: 15px;
+    color: $accent;
+  }
 }
 
 .row {
