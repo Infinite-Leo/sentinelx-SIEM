@@ -9,3 +9,9 @@ Historical events evaluated: 29
 Alerts that would fire: 1
 Test type: Historical dry-run; no live alert was generated.
 Purpose: Detect repeated failed authentication events from the same source.
+
+Live validation after rule enablement:
+Events ingested in run: 29
+Live alerts generated: 2
+Alert status after workflow: 2 resolved, 0 open
+Workflow performed: acknowledged, investigated, and resolved both generated alerts.

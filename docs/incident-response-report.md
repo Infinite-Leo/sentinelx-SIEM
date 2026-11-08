@@ -9,22 +9,22 @@
 | Incident ID | IR-001 |
 | Scenario | Brute Force with Lateral Movement |
 | MITRE ATT&CK | T1110.001 Brute Force: Password Guessing; T1021.004 SSH |
-| Severity | Medium, based on repeated simulated authentication failures and subsequent lateral-movement events |
-| Date/time | 8 November 2026; dashboard timestamps approximately 09:48:53–09:49:11 |
-| Analyst | Anubhab Das |
+| Severity | High alert severity; simulated incident involved repeated authentication failures and subsequent lateral-movement events |
+| Date/time | 8 November 2026; live-validation alert timestamps displayed approximately 17:09:58–17:09:59 |
+| Analyst | Local analyst account `live-test-2026b` |
 
 ## 2. Detection
 
-- Rule that fired: None observed
-- Alert IDs: None generated
-- First alert timestamp: Not applicable
-- Detection result: SentinelX ingested the simulated events but generated zero alerts
+- Rule that fired: Local Brute Force Login Detector (Threshold; 5 `login_failure` events from the same `source_ip` within 300 seconds)
+- Alert IDs: Two alerts generated; identifiers were not exposed in the UI evidence
+- First alert timestamp: Approximately 17:09:58 as displayed by the dashboard
+- Detection result: The live-enabled rule generated 2 High-severity alerts during the validation run
 
 ## 3. Investigation
 
 - Logs reviewed: SentinelX Log Viewer and Dashboard
-- Time window: Approximately 09:48:53–09:49:11 as displayed by the dashboard
-- Events ingested: 29
+- Time window: Approximately 17:09:58–17:09:59 for the matched alert events; the playbook completed locally
+- Events ingested in validation run: 29
 - Indicators observed:
   - Simulated source IP: 203.0.113.42
   - Destination IP: 10.1.1.50
@@ -33,22 +33,21 @@
   - `connection_allowed` events
   - `process_execution` events
   - Simulated usernames including redis, mysql, docker, git, ansible, nagios, and testuser
-- Determination: The event sequence was a simulated brute-force and lateral-movement scenario. No alert was generated, so no alert-level true-positive or false-positive determination was made.
+- Determination: True positive for the simulated detection rule: repeated `login_failure` events from the same simulated source matched the configured threshold. This was a local training simulation, not a production incident.
 
 ## 4. Timeline
 
 | Time displayed by dashboard | Event |
 | --- | --- |
-| 09:48:53–09:48:55 | Repeated simulated `login_failure` events from 203.0.113.42 |
-| 09:48:55 | Simulated IDS alert event appeared in the Log Viewer |
-| 09:48:57 | Simulated `login_success` event |
-| 09:49:00–09:49:08 | Simulated process execution and allowed-connection events |
-| 09:49:09–09:49:11 | Additional simulated login success and process execution events |
-| During the run | No SentinelX alert was generated |
+| 17:09:58–17:09:59 | Five repeated simulated `login_failure` events from 203.0.113.42 matched the threshold rule |
+| 17:09:59 | Two High-severity SentinelX alerts were visible for the matched source group |
+| After detection | Both alerts were acknowledged by `live-test-2026b` |
+| After acknowledgement | Both alerts were moved to Investigating |
+| Final workflow step | Both alerts were resolved; dashboard showed 0 open alerts |
 
 ## 5. Containment
 
-No containment action was executed because SentinelX generated no alert.
+No network containment action was executed because this was a local simulation. The two generated alerts were acknowledged, investigated, and resolved in the SentinelX workflow.
 
 If this were a real incident, proposed containment actions would include isolating the affected host, blocking the simulated source address at the relevant control point, and disabling affected accounts after validation.
 
@@ -66,16 +65,17 @@ A real recovery process would restore affected services from a trusted state, va
 
 ## 8. Lessons Learned
 
-- Detection gaps: 29 simulated events were ingested, but no SentinelX alerts were generated.
-- Rule tuning: No tuning was performed during this exercise because there was no generated alert to tune.
+- Detection result: The enabled threshold rule generated 2 alerts from 29 newly ingested simulated events.
+- Rule tuning: No tuning was performed; the configured 5-event/300-second threshold matched the intended test pattern.
 - Investigation value: The Log Viewer showed a recognizable sequence of repeated login failures followed by login success, allowed connections, and process execution.
-- Follow-ups: Review why the brute-force playbook events did not trigger a correlation rule; validate rule conditions, event normalization, source fields, thresholds, and cooldown behavior.
+- Follow-ups: Consider duplicate-alert suppression or cooldown behavior if only one alert per simulation window is desired.
 
 ## 9. Metrics
 
-- Events ingested during simulation: 29
-- Alerts generated: 0
-- Open alerts: 0
+- Events ingested during live validation run: 29
+- Alerts generated: 2
+- Alerts resolved: 2
+- Open alerts after workflow: 0
 - Critical alerts: 0
-- Dashboard severity breakdown: 20 Medium and 9 Info
-- Time from first event to alert: Not applicable because no alert was generated
+- Dashboard severity breakdown after validation: 40 Medium and 18 Info
+- Time from first matched event to alert: Approximately 1 second based on displayed timestamps
