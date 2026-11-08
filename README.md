@@ -16,6 +16,8 @@
 
 > Full-stack SIEM dashboard with real-time log correlation and MITRE ATT&CK attack scenario simulation engine.
 
+> **Attribution:** Based on CarterPerez-dev/Cybersecurity-Projects (AGPL-3.0). This repository documents local modifications and assessment work built from that upstream project.
+
 *This is a quick overview — security theory, architecture, and full walkthroughs are in the [learn modules](#learn).*
 
 **[Screenshots & live demo →](DEMO.md)**
