@@ -16,8 +16,8 @@
 
 <br>
 
-<a href="https://siem.carterperez-dev.com">
-  <img src="https://img.shields.io/badge/▶_TRY_IT_LIVE-siem.carterperez--dev.com-DC143C?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Live Demo"/>
+<a href="https://sentinelx-xi.vercel.app/">
+  <img src="https://img.shields.io/badge/▶_TRY_IT_LIVE-sentinelx--xi.vercel.app-16A34A?style=for-the-badge&logo=vercel&logoColor=white" alt="Live Demo"/>
 </a>
 
 <br>

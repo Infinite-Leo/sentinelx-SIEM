@@ -1,4 +1,4 @@
-```ruby
+```text
 ███████╗██╗███████╗███╗   ███╗
 ██╔════╝██║██╔════╝████╗ ████║
 ███████╗██║█████╗  ██╔████╔██║
@@ -7,11 +7,11 @@
 ╚══════╝╚═╝╚══════╝╚═╝     ╚═╝
 ```
 
-[![Cybersecurity Projects](https://img.shields.io/badge/Cybersecurity--Projects-Project%20%2314-red?style=flat&logo=github)](https://github.com/CarterPerez-dev/Cybersecurity-Projects/tree/main/PROJECTS/intermediate/siem-dashboard)
+[![SentinelX](https://img.shields.io/badge/SentinelX-SIEM%20Platform-blue?style=flat&logo=github)](https://github.com/Infinite-Leo/sentinelx-SIEM)
 [![Python](https://img.shields.io/badge/Python-3.14+-3776AB?style=flat&logo=python&logoColor=white)](https://www.python.org)
 [![React](https://img.shields.io/badge/React-19-61DAFB?style=flat&logo=react&logoColor=black)](https://react.dev)
 [![License: AGPLv3](https://img.shields.io/badge/License-AGPL_v3-purple.svg)](https://www.gnu.org/licenses/agpl-3.0)
-[![Live Demo](https://img.shields.io/badge/Upstream_Live_Demo-siem.carterperez--dev.com-green?style=flat&logo=googlechrome)](https://siem.carterperez-dev.com/)
+[![Live Demo](https://img.shields.io/badge/Live-sentinelx--xi.vercel.app-green?style=flat&logo=googlechrome)](https://sentinelx-xi.vercel.app/)
 [![Docker](https://img.shields.io/badge/Docker-ready-2496ED?style=flat&logo=docker)](https://www.docker.com)
 
 > Full-stack SIEM dashboard with real-time log correlation and MITRE ATT&CK attack scenario simulation engine.
@@ -37,7 +37,7 @@ docker compose -f dev.compose.yml up -d
 
 Visit the local development deployment at `http://127.0.0.1:8431`.
 
-The upstream project also provides a live demo at [siem.carterperez-dev.com](https://siem.carterperez-dev.com/). No testing described in this repository was performed against that public deployment.
+The repository also has a public deployment at [sentinelx-xi.vercel.app](https://sentinelx-xi.vercel.app/). No testing described in this repository was performed against any public deployment.
 
 > [!TIP]
 > This project uses [`just`](https://github.com/casey/just) as a command runner. Type `just` to see all available commands.
