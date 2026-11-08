@@ -1,0 +1,11 @@
+Simulation: Brute Force with Lateral Movement
+Environment: Local SentinelX deployment at http://127.0.0.1:8431
+Date: 8 November 2026
+Events ingested: 29
+Alerts generated: 0
+Open alerts: 0
+Critical alerts: 0
+Severity breakdown: 20 Medium, 9 Info
+Top observed sources: 203.0.113.42, 10.1.1.50, 10.1.2.20
+Result: Simulation completed without generated alerts.
+Interpretation: Detection outcome only; no successful alerting claim is made.

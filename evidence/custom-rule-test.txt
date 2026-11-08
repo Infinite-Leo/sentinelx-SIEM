@@ -1,0 +1,11 @@
+Rule name: Local Brute Force Login Detector
+Rule type: Threshold
+Severity: High
+Event filter: source_type=auth, event_type=login_failure
+Threshold: 5 events
+Window: 300 seconds
+Group by: source_ip
+Historical events evaluated: 29
+Alerts that would fire: 1
+Test type: Historical dry-run; no live alert was generated.
+Purpose: Detect repeated failed authentication events from the same source.

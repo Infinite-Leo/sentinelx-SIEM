@@ -11,7 +11,7 @@
 [![Python](https://img.shields.io/badge/Python-3.14+-3776AB?style=flat&logo=python&logoColor=white)](https://www.python.org)
 [![React](https://img.shields.io/badge/React-19-61DAFB?style=flat&logo=react&logoColor=black)](https://react.dev)
 [![License: AGPLv3](https://img.shields.io/badge/License-AGPL_v3-purple.svg)](https://www.gnu.org/licenses/agpl-3.0)
-[![Live Demo](https://img.shields.io/badge/Live-siem.carterperez--dev.com-green?style=flat&logo=googlechrome)](https://siem.carterperez-dev.com/)
+[![Live Demo](https://img.shields.io/badge/Upstream_Live_Demo-siem.carterperez--dev.com-green?style=flat&logo=googlechrome)](https://siem.carterperez-dev.com/)
 [![Docker](https://img.shields.io/badge/Docker-ready-2496ED?style=flat&logo=docker)](https://www.docker.com)
 
 > Full-stack SIEM dashboard with real-time log correlation and MITRE ATT&CK attack scenario simulation engine.
@@ -32,10 +32,12 @@
 ## Quick Start
 
 ```bash
-docker compose up -d
+docker compose -f dev.compose.yml up -d
 ```
 
-Visit `http://localhost:8431` or the live demo at [siem.carterperez-dev.com](https://siem.carterperez-dev.com/)
+Visit the local development deployment at `http://127.0.0.1:8431`.
+
+The upstream project also provides a live demo at [siem.carterperez-dev.com](https://siem.carterperez-dev.com/). No testing described in this repository was performed against that public deployment.
 
 > [!TIP]
 > This project uses [`just`](https://github.com/casey/just) as a command runner. Type `just` to see all available commands.
@@ -61,6 +63,24 @@ This project includes step-by-step learning materials covering security theory, 
 | [02 - Architecture](learn/02-ARCHITECTURE.md) | System design and data flow |
 | [03 - Implementation](learn/03-IMPLEMENTATION.md) | Code walkthrough |
 | [04 - Challenges](learn/04-CHALLENGES.md) | Extension ideas and exercises |
+
+## Local Assessment Work
+
+This repository is based on the upstream [SentinelX project](https://github.com/CarterPerez-dev/Cybersecurity-Projects/tree/main/PROJECTS/intermediate/siem-dashboard). The work below documents local security-learning and assessment activity. No production systems or third-party systems were tested.
+
+### Documented additions
+
+- Ran a local Brute Force with Lateral Movement simulation.
+- Added the custom `Local Brute Force Login Detector` threshold rule.
+- Added `docs/custom-correlation-rule.md`.
+- Added `docs/incident-response-report.md`.
+- Added `docs/threat-model-stride.md`.
+- Added local simulation evidence under `evidence/`.
+- Added local dashboard, scenario, and Log Viewer screenshots under `evidence/screenshots/`.
+
+### Evidence boundary
+
+The simulation was performed in a local Docker deployment at `http://127.0.0.1:8431`. The original application code and upstream learning materials were preserved as reference material.
 
 ## License
 
