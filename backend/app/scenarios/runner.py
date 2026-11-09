@@ -26,7 +26,7 @@ Connects to:
   controllers/scenario_ctrl.py - calls ScenarioRunner methods
 """
 
-import random
+import secrets
 import threading
 import time
 from dataclasses import dataclass, field
@@ -111,7 +111,10 @@ class ScenarioThread:
 
                 delay = event.delay_seconds / self.speed
                 jitter = delay * JITTER_FACTOR
-                actual_delay = max(0, delay + random.uniform(-jitter, jitter))  # noqa: S311
+                actual_delay = max(
+                    0,
+                    delay + secrets.SystemRandom().uniform(-jitter, jitter),
+                )
                 time.sleep(actual_delay)
 
                 if self.stop_event.is_set():
