@@ -24,4 +24,4 @@ Notable result: PyJWT 2.11.0 was reported with a CRITICAL authentication-bypass 
 Finding selected: Bandit B311 in `backend/app/scenarios/runner.py`.
 Change made: Replaced the standard `random.uniform()` call used for scenario jitter with `secrets.SystemRandom().uniform()`.
 Reason: The simulation still receives non-deterministic jitter, while the code no longer uses the PRNG that Bandit flags for security-sensitive randomness.
-Retest result: Pending the next GitHub Actions run. The original finding remains preserved in this first-run record.
+Retest result: The next GitHub Actions run reported zero Bandit findings. npm audit remained incomplete because the frontend has no npm lockfile; Trivy continued to report the dependency findings listed above.
